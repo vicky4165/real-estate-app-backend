@@ -59,6 +59,7 @@
     <script src="/assets/js/plugins/bootstrap.min.js"></script>
     <script src="/assets/js/ripple.js"></script>
     <script src="/assets/js/pcoded.min.js"></script>
+    <script src="/assets/js/plugins/sweetalert.min.js"></script>
     <script>
         $(document).ready(function(){
             $("#login-form").on("submit", async function(e) {
@@ -67,22 +68,17 @@
                     const email = $("#emailaddress").val(), password = $("#password").val();
                     const reqBody = { email, password };
                     console.log("reqBody: ", reqBody);
-                    const response = await fetch(`/login`, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(reqBody)
-                    });
+                    const response = await fetch(`/login`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(reqBody) });
                     const apiData = await response.json();
                     if(apiData.status) {
-                        // $.NotificationApp.send("Success", apiData.msg, "top-right", "green", "success");
                         window.location.href = "/";
                         return true;
                     }
-                    // $.NotificationApp.send("Oops", apiData.msg, "top-right", "red", "warning");
+                    swal({ title: "Oops!", text: apiData.msg, icon: "error" });
                     return false;
                 } catch(ex) {
-                    // $.NotificationApp.send("Oops", "Something Went Wrong, please try again later.", "top-right", "red", "error");
                     console.error("LOGIN: ", ex.message);
+                    swal({ title: "Oops!", text: "Something Went Wrong, Please Try Again Later", icon: "error" });
                     return false;
                 }
             });

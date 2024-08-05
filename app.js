@@ -35,17 +35,10 @@ app.use("/", require("./web/routes/admin.routes"));
 
 app.get("/logout", async (req, res) => {
   const sess = req.session;
-  let url = "";
-  if (sess.usertype === "admin") {
-    sess.isAdminLogin = false;
-    url = "/admin";
-  } else {
-    sess.isAdminLogin = false;
-    url = "/";
-  }
+  sess.isAdminLogin = false;
   sess.token = "";
   sess.user = "";
-  res.redirect(url);
+  res.redirect("/");
 });
 
 app.use((req, res, next) => {
