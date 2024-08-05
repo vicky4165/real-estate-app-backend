@@ -1,0 +1,32 @@
+<div id="create-subscription-product-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="create-subscription-product-label" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <form id="create-subscription-product-form" class="pl-3 pr-3" autocomplete="off">
+            <div class="modal-content">
+                    <div class="modal-header modal-colored-header bg-primary">
+                        <h4 class="modal-title" id="create-subscription-product-label">Create Product</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="product-name">Name <small class="text-danger">*</small></label>
+                                <input class="form-control" type="text" name="product-name" id="product-name" placeholder="Enter Product Name" required autofocus />
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="product-desc">Description <small class="text-danger">*</small></label>
+                                <textarea class="form-control resize-none" rows="5" name="product-desc" id="product-desc" placeholder="Enter Description" required></textarea>
+                            </div>
+                            <!--<div class="form-group col-md-12">
+                                <label for="product-image">Image <small class="text-primary">(Optional)</small></label>
+                                <input class="form-control" type="file" name="tacochat-subscription-product-image" id="product-image" accept="image/*" />
+                            </div>-->
+                        </div>                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div id="update-subscription-plan-pricing-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="update-subscription-plan-pricing-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="update-subscription-plan-pricing-form" class="pl-3 pr-3" autocomplete="off">
+            <div class="modal-content">
+                <div class="modal-header modal-colored-header bg-primary">
+                    <h4 class="modal-title" id="update-subscription-plan-pricing-label">Update Plan</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <h5>The price change affects subscribers as follows:</h5>
+                            <ul>
+                                <li><p>New subscribers see the latest price.</p></li>
+                                <li>
+                                    <p>Existing subscribers are informed of the price change 10 or more days in advance. Billing cycles within 10 days of the price change are not affected until the next billing cycle.</p>
+                                    <p><b>NOTE:- </b>This 10-day rule is not applicable for direct card subscriptions.</p>
+                                </li>
+                                <li><p>If you change the pricing for a trial period, the price change does not affect subscribers currently in a trial period.</p></li>
+                            </ul>
+                        </div>
+                        <div class="form-group col-md-12">&nbsp;</div>
+                        <div class="form-group col-md-12">
+                            <label for="edit-plan-price">Pricing</label>
+                            <input data-toggle="touchspin" value="0" name="edit-plan-price" id="edit-plan-price" type="text" data-bts-prefix="$" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light btn-sm" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

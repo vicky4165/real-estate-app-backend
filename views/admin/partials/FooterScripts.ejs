@@ -1,0 +1,36 @@
+<script src="/assets/js/vendor.min.js"></script>
+<script src="/assets/js/app.min.js"></script>
+<script>
+    const userid = '<%=user._id;%>';
+    $(document).ready(function(){
+        async function getNotifications() {
+            try {
+                const reqBody = { userid };
+                const response = await fetch("/admin/notifications", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(reqBody)});
+                const apiData = await response.json();
+                ///console.log("reqBody: ", reqBody);
+                console.log("apiData: ", apiData);
+                if(apiData.status) {
+                    const dbNotifications = apiData.notifications;
+                    let notificationHTML = "";
+                    if(dbNotifications.length > 0) {
+                        dbNotifications.forEach(notification => {
+                            notificationHTML = `
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary"><i class="mdi mdi-comment-account-outline"></i></div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin<small class="text-muted">1 min ago</small></p>
+                                </a>
+                            `;    
+                        });
+                    } else {
+                        notificationHTML = `<a href="javascript:void(0);" class="dropdown-item notify-item"><p class="notify-details text-center m-0 p-0">No Notifications</p></a>`;
+                    }
+                }
+            } catch(ex) {
+                $.NotificationApp.send("Oops", "Something Went Wrong, please try again later.", "top-right", "red", "error");
+                console.error("Notification: ", ex.message);
+            }
+        }
+        getNotifications();
+    });
+</script>

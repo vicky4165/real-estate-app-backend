@@ -1,0 +1,32 @@
+<div id="edit-application-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center mt-2 mb-4"><h3>Update Application</h3></div>
+                <form id="edit-application-form" class="pl-3 pr-3" autocomplete="off">
+                    <input type="hidden" id="edit-application-id" />
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="client">Select Client</label>
+                            <select class="form-control select2" name="edit-client" id="edit-client" data-toggle="select2" required>
+                                <option value="">Select</option>
+                                <% clients.forEach(client => { %>
+                                    <option value="<%=client._id;%>"><%=client.name;%></option>
+                                <% }); %>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="edit-appname">Name</label>
+                            <input class="form-control" type="text" name="edit-appname" id="edit-appname" required placeholder="Enter Application Name" />
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="edit-appurl">Application URL</label>
+                            <input class="form-control" type="text" name="edit-appurl" id="edit-appurl" required placeholder="Enter Application URL" />
+                        </div>
+                        <div class="form-group col-md-12 text-center"><button class="btn btn-success" type="submit">Update APP</button></div>
+                    </div>                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
