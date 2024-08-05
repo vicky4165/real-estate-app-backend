@@ -66,8 +66,8 @@ app.use((req, res, next) => {
 
 app.use((error, req, res, next) => {
   console.log("ERR-404: ", error.message);
-  res.json({ message: error.message });
-  //res.render("404", { message: error.message });
+  // res.json({ message: error.message });
+  res.render("404", { message: error.message });
 });
 
 module.exports = app;
